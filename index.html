@@ -192,220 +192,308 @@
                         <option value="dn">DN솔루션즈 (DN Solutions)</option>
                         <option value="wia">현대위아 (Hyundai WIA)</option>
                         <option value="hwc">화천기계 (Hwacheon)</option>
-                        <option value="dmg">DMG모리 (DMG Mori)</option>
-                        <option value="mzk">마자크 (Mazak)</option>
+                        <option value="dmg">DMG MORI</option>
+                        <option value="mzk">Mazak</option>
                     </select>
-                    <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
-                        <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
+                    <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-4 text-gray-500">
+                        <!-- Down Arrow using Unicode/CSS instead of SVG -->
+                        <span class="text-xs">▼</span>
                     </div>
                 </div>
             </div>
 
-            <!-- Dynamic Content Area -->
-            <div class="grid grid-cols-1 lg:grid-cols-5 gap-8">
-                <!-- Left: Company Details (Text) - Takes up 3 columns -->
-                <div class="lg:col-span-3 bg-surfaceWarm p-8 rounded-3xl shadow-sm border border-gray-100 space-y-6">
-                    <div>
-                        <div id="companyTagline" class="text-xs font-bold uppercase tracking-widest mb-2 text-accentDN">SIMTOS 2026 캐치프레이즈</div>
-                        <p id="companyCatchphrase" class="text-lg font-semibold text-textMain italic"></p>
-                    </div>
-                    <div>
-                        <h3 class="text-sm font-bold uppercase tracking-widest text-textMuted mb-2">핵심 분석 요약</h3>
-                        <p id="companySummary" class="text-textMain leading-relaxed"></p>
-                    </div>
-                    <div class="grid grid-cols-2 gap-4 pt-4 border-t border-gray-100">
+            <div class="bg-surfaceWarm rounded-3xl shadow-sm border border-gray-100 overflow-hidden flex flex-col lg:flex-row">
+                
+                <!-- Left Details Panel -->
+                <div class="w-full lg:w-1/2 p-8 lg:p-12 border-b lg:border-b-0 lg:border-r border-gray-100 flex flex-col justify-center">
+                    <div class="mb-2 text-sm font-bold tracking-wider uppercase text-textMuted" id="detailOrigin">South Korea</div>
+                    <h3 class="text-3xl font-extrabold text-textMain mb-6" id="detailName">DN솔루션즈</h3>
+                    
+                    <div class="space-y-6">
                         <div>
-                            <div class="text-xs text-textMuted uppercase tracking-wider mb-1">플래그십 모델</div>
-                            <div id="companyFlagship" class="font-bold text-textMain"></div>
+                            <h4 class="text-sm font-semibold text-textMuted mb-1">SIMTOS 2026 캐치프레이즈</h4>
+                            <p class="text-lg font-medium text-textMain italic" id="detailSlogan">"Digital Transformation & Flexible Automation"</p>
                         </div>
+                        
                         <div>
-                            <div class="text-xs text-textMuted uppercase tracking-wider mb-1">자동화 준비도(1-10)</div>
-                            <div id="companyAutomationReadiness" class="font-bold text-textMain text-2xl"></div>
+                            <h4 class="text-sm font-semibold text-textMuted mb-2">핵심 분석 요약</h4>
+                            <p class="text-textMain leading-relaxed text-sm bg-bgWarm p-4 rounded-xl border border-gray-100" id="detailDesc">
+                                5축 가공기와 하이엔드 복합기의 라인업을 대폭 확장하며 기술 고도화에 성공했습니다. 특히 자체 개발한 CUFOS 기반의 앱 생태계 확장을 통해 소프트웨어 경쟁력을 글로벌 수준으로 끌어올렸으며, 협동로봇 및 AIV(자율주행물류로봇)와 결합된 유연생산셀(FMC)의 모듈화가 돋보입니다.
+                            </p>
+                        </div>
+
+                        <div class="grid grid-cols-2 gap-4 pt-4 border-t border-gray-100">
+                            <div>
+                                <h4 class="text-xs font-semibold text-textMuted mb-1">플래그십 모델</h4>
+                                <p class="font-bold text-textMain" id="detailFlagship">DVF 8000T (5축)</p>
+                            </div>
+                            <div>
+                                <h4 class="text-xs font-semibold text-textMuted mb-1">자동화 준비도(1-10)</h4>
+                                <div class="flex items-center">
+                                    <span class="font-bold text-textMain text-xl mr-2" id="detailScore">9.0</span>
+                                    <div class="w-full bg-gray-200 rounded-full h-2.5">
+                                        <div class="bg-accentDN h-2.5 rounded-full" id="detailScoreBar" style="width: 90%"></div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- Right: Doughnut Chart - Takes up 2 columns -->
-                <div class="lg:col-span-2 bg-surfaceWarm p-8 rounded-3xl shadow-sm border border-gray-100 flex flex-col items-center justify-center">
-                    <h3 class="text-sm font-bold uppercase tracking-widest text-textMuted mb-4 text-center">R&D 투자 분포 추정 (2025-2026)</h3>
-                    <div class="chart-container" style="height: 280px; max-height: 300px;">
+                <!-- Right Chart Panel -->
+                <div class="w-full lg:w-1/2 p-8 lg:p-12 flex flex-col items-center justify-center bg-gray-50/50">
+                    <h4 class="text-lg font-bold text-textMain mb-6 w-full text-center">R&D 투자 분포 추정 (2025-2026)</h4>
+                    <div class="chart-container w-full" style="height: 300px; max-height: 300px;">
                         <canvas id="doughnutChart"></canvas>
                     </div>
-                    <p class="text-xs text-textMuted mt-4 text-center">* 해당 차트는 SIMTOS 전시 출품작 및 발표 자료를 바탕으로 재구성된 집중 영역 비율입니다.</p>
+                    <p class="text-xs text-textMuted text-center mt-6 max-w-sm">
+                        * 해당 차트는 SIMTOS 전시 출품작 및 발표 자료를 바탕으로 재구성된 집중 영역 비율입니다.
+                    </p>
                 </div>
+
             </div>
         </section>
 
     </main>
 
-    <!-- Footer -->
-    <footer class="mt-20 border-t border-gray-200 bg-surfaceWarm">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 text-center text-sm text-textMuted">
-            <p>본 리포트는 SIMTOS 2026 전시회 관찰 및 공개 발표 자료를 기반으로 작성된 분석 자료입니다.</p>
-            <p class="mt-1">© 2026 SIMTOS Tech Analysis. All rights reserved.</p>
+    <footer class="bg-textMain text-surfaceWarm py-10 mt-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-sm text-gray-400">
+            <p>본 리포트는 가상의 SIMTOS 2026 데이터를 기반으로 작성된 데모 인터랙티브 웹 애플리케이션입니다.</p>
+            <p class="mt-2">&copy; 2026 Autonomous Manufacturing Insight. All rights reserved.</p>
         </div>
     </footer>
 
-
+    <!-- JavaScript Application Logic -->
     <script>
-        // =============================================
-        // DATA DEFINITIONS
-        // =============================================
+        // --- 1. Data Storage ---
+        // Mock data reflecting the technological focus of major machine tool companies in 2026
         const companyData = {
             dn: {
-                catchphrase: '"Digital Transformation & Flexible Automation"',
-                summary: '5축 가공기와 하이엔드 복합기의 라인업을 대폭 확장하며 기술 고도화에 성공했습니다. 특히 자체 개발한 CUFOS 기반의 앱 생태계 확장을 통해 소프트웨어 경쟁력을 글로벌 수준으로 끌어올렸으며, 협동로봇 및 AIV(자율주행물류로봇)와 결합된 유연생산셀(FMC)의 모듈화가 돋보입니다.',
-                flagship: 'DVF 8000T (5축)',
-                automationReadiness: 9,
-                accentColor: '#4A6D7C',
-                rdData: [35, 25, 15, 15, 10],
-                rdLabels: ['AI/SW 개발', '복합가공 R&D', '자동화 솔루션', '친환경 기술', '고속/정밀 가공']
+                name: "DN솔루션즈",
+                origin: "South Korea",
+                color: "#4A6D7C",
+                slogan: "Digital Transformation & Flexible Automation",
+                desc: "5축 가공기와 하이엔드 복합기의 라인업을 대폭 확장하며 기술 고도화에 뚜렷한 성과를 보였습니다. 자체 개방형 CNC 플랫폼(CUFOS) 기반의 앱 생태계를 확장하여 예지보전 및 가공 최적화 소프트웨어 경쟁력을 끌어올렸습니다. 협동로봇 및 AIV와 결합된 모듈형 턴키 자동화 솔루션이 주력입니다.",
+                flagship: "DVF 8000T (고정밀 5축)",
+                score: 9.0,
+                radarData: [85, 90, 80, 85, 88], // AI, Auto, Eco, Speed, Multi
+                pieData: [35, 30, 20, 15] // SW/AI, Automation, Hardware Design, Eco
             },
             wia: {
-                catchphrase: '"Smart Factory Solution Provider"',
-                summary: '수직 계열화된 모빌리티 부품 가공 노하우를 바탕으로 항공·방산 분야로의 전략적 확장을 본격화했습니다. 현대차그룹의 디지털 제조 인프라와 연계한 자체 IoT 플랫폼 통합 역량이 강점이며, 대형 공작기계 분야에서의 기술 신뢰도가 높습니다.',
-                flagship: 'KBN 135C (수평보링)',
-                automationReadiness: 8,
-                accentColor: '#5C6B5D',
-                rdData: [20, 30, 20, 10, 20],
-                rdLabels: ['AI/SW 개발', '대형/특수 가공', '자동화 솔루션', '친환경 기술', '고속/정밀 가공']
+                name: "현대위아",
+                origin: "South Korea",
+                color: "#5C6B5D",
+                slogan: "Smart & Green Mobility Manufacturing",
+                desc: "자동차 부품 가공 시장의 강자답게 전기차(EV) 부품 가공에 특화된 라인업과 대량 생산 라인의 시스템 엔지니어링 능력이 돋보입니다. 로봇과 공작기계를 하나의 컨트롤러로 제어하는 통합 솔루션과, 공장 단위의 에너지 관리 시스템(EMS) 탑재로 친환경 제조(Green Mfg) 트렌드를 주도하려 합니다.",
+                flagship: "XF 시리즈 (고성능 5축)",
+                score: 8.8,
+                radarData: [80, 95, 85, 82, 80],
+                pieData: [25, 40, 15, 20]
             },
             hwc: {
-                catchphrase: '"Precision, Reliability, Innovation"',
-                summary: '국내 기반의 탄탄한 기술력을 바탕으로 정밀도와 내구성에서 최고 수준을 유지합니다. 대형 베드 선반 및 수직 선반 분야에서 독보적인 위치를 차지하며, 에너지 저감형 주축 및 유공압 시스템 개선에 집중 투자하는 친환경 전략이 특징입니다.',
-                flagship: 'Hi-TECH 850 (수직 MC)',
-                automationReadiness: 7,
-                accentColor: '#8C5A5A',
-                rdData: [15, 20, 15, 30, 20],
-                rdLabels: ['AI/SW 개발', '복합/대형 가공', '자동화 솔루션', '친환경 기술', '고속/정밀 가공']
+                name: "화천기계",
+                origin: "South Korea",
+                color: "#8C5A5A",
+                slogan: "Masterpiece of Machining with AI",
+                desc: "기계적 강성과 고정밀 가공이라는 전통적인 장점에 자체 개발한 가공 최적화 소프트웨어(SMART CORE)를 깊게 통합했습니다. 숙련된 작업자의 노하우를 AI가 학습하여 비숙련자도 고품질 가공이 가능하도록 돕는 인공지능 제어 기술의 상용화 단계가 인상적입니다. 금형 가공 분야에서 강세입니다.",
+                flagship: "SMART Ua (AI 탑재 머시닝센터)",
+                score: 8.2,
+                radarData: [88, 75, 75, 90, 78],
+                pieData: [45, 20, 25, 10]
             },
             dmg: {
-                catchphrase: '"Leading in Tomorrow\'s Manufacturing"',
-                summary: '독일-일본 협력 기반의 최고급 기술력으로 5축 가공, 복합 가공 분야에서 글로벌 최고 수준을 유지합니다. CELOS® 및 WERKBLiQ 디지털 솔루션 생태계가 완성도 높으며, 적층 제조(AM)와 절삭 가공을 결합한 하이브리드 머신이 미래 전략의 핵심입니다.',
-                flagship: 'DMU 50 3rd Gen (5축)',
-                automationReadiness: 9,
-                accentColor: '#7A6A85',
-                rdData: [30, 20, 20, 10, 20],
-                rdLabels: ['AI/SW 생태계', '복합/하이브리드', '자동화 솔루션', '친환경 기술', '고속/정밀 가공']
+                name: "DMG MORI",
+                origin: "Germany / Japan",
+                color: "#7A6A85",
+                slogan: "Machining Transformation (MX)",
+                desc: "공작기계의 글로벌 리더로서 기술적 한계를 계속 밀어붙이고 있습니다. 프로세스 통합(하이브리드 가공), 자동화, 디지털 전환(DX), 그리고 그린 전환(GX)을 융합한 'MX' 개념을 제시했습니다. 완벽한 디지털 트윈(CELOS X)과 압도적인 다축 복합 가공 성능으로 항공우주 및 의료 기기 하이엔드 시장을 장악하고 있습니다.",
+                flagship: "NTX 3000 (턴밀 복합기)",
+                score: 9.8,
+                radarData: [95, 95, 90, 95, 98],
+                pieData: [30, 25, 25, 20]
             },
             mzk: {
-                catchphrase: '"Smooth Technology for All"',
-                summary: 'SmoothAI 기반의 인텔리전트 CNC와 자동화 솔루션의 원스톱 패키지 제공으로 사용자 접근성을 극대화했습니다. 가공 공정의 최적화를 자동화하는 AI 기능과 광범위한 팔레트 교환 시스템(FMS) 적용 사례로 북미·유럽 시장에서 강한 입지를 보입니다.',
-                flagship: 'VARIAXIS i-800 (5축)',
-                automationReadiness: 9,
-                accentColor: '#D4A373',
-                rdData: [25, 15, 35, 15, 10],
-                rdLabels: ['AI/SW(CNC)', '복합 가공', '자동화 FMS', '친환경 기술', '고속/정밀 가공']
+                name: "Yamazaki Mazak",
+                origin: "Japan",
+                color: "#D4A373",
+                slogan: "Discover More with MAZATROL",
+                desc: "대화형 CNC의 대명사 MAZATROL을 AI와 결합하여 진화시켰습니다(MAZATROL DX). 사이버 공간에서의 완벽한 셋업과 시뮬레이션을 통해 실제 기계의 가동률을 극대화합니다. 마찰 교반 용접(FSW)이나 적층 제조(AM) 기술을 절삭 가공기와 융합한 하이브리드 장비 라인업에서 세계 최고 수준의 다양성을 보여줍니다.",
+                flagship: "INTEGREX i-H 시리즈",
+                score: 9.5,
+                radarData: [92, 90, 85, 90, 96],
+                pieData: [35, 20, 30, 15]
             }
         };
 
-        const radarData = {
-            labels: ['AI/SW 경쟁력', '자동화 연계성', '친환경성', '정밀/고속 가공', '복합 가공 능력'],
-            datasets: [
-                { label: 'DN솔루션즈', data: [9, 9, 7, 8, 9], borderColor: '#4A6D7C', backgroundColor: 'rgba(74,109,124,0.15)', pointBackgroundColor: '#4A6D7C' },
-                { label: '현대위아', data: [7, 8, 6, 8, 7], borderColor: '#5C6B5D', backgroundColor: 'rgba(92,107,93,0.15)', pointBackgroundColor: '#5C6B5D' },
-                { label: '화천기계', data: [6, 7, 9, 9, 7], borderColor: '#8C5A5A', backgroundColor: 'rgba(140,90,90,0.15)', pointBackgroundColor: '#8C5A5A' },
-                { label: 'DMG모리', data: [9, 9, 8, 9, 10], borderColor: '#7A6A85', backgroundColor: 'rgba(122,106,133,0.15)', pointBackgroundColor: '#7A6A85' },
-                { label: '마자크', data: [8, 10, 7, 9, 8], borderColor: '#D4A373', backgroundColor: 'rgba(212,163,115,0.15)', pointBackgroundColor: '#D4A373' },
-            ]
+        const chartLabels = {
+            radar: ['AI & SW 솔루션', '자동화 연계성', '친환경/에너지 효율', '정밀도 및 고속성', '복합/하이브리드 가공'],
+            pie: ['소프트웨어 & AI', '자동화 & 로보틱스', '기구 설계/신소재', '친환경 기술']
         };
 
-        // =============================================
-        // CHART INITIALIZATION
-        // =============================================
+        // --- 2. Chart Initialization ---
         
-        // Radar Chart
-        const radarCtx = document.getElementById('radarChart').getContext('2d');
-        const radarChart = new Chart(radarCtx, {
+        // Global Chart Defaults for matching typography
+        Chart.defaults.font.family = "'Pretendard', sans-serif";
+        Chart.defaults.color = '#718096';
+
+        // 2-A: Radar Chart (Comparison)
+        const ctxRadar = document.getElementById('radarChart').getContext('2d');
+        const radarDatasets = Object.keys(companyData).map(key => {
+            const comp = companyData[key];
+            // Hex to RGBA for transparent fill
+            const hex = comp.color;
+            const r = parseInt(hex.slice(1, 3), 16), g = parseInt(hex.slice(3, 5), 16), b = parseInt(hex.slice(5, 7), 16);
+            
+            return {
+                label: comp.name,
+                data: comp.radarData,
+                backgroundColor: `rgba(${r}, ${g}, ${b}, 0.1)`,
+                borderColor: comp.color,
+                pointBackgroundColor: comp.color,
+                pointBorderColor: '#fff',
+                pointHoverBackgroundColor: '#fff',
+                pointHoverBorderColor: comp.color,
+                borderWidth: 2,
+                hidden: (key === 'hwc' || key === 'wia') // Hide some initially to avoid clutter
+            };
+        });
+
+        const radarChart = new Chart(ctxRadar, {
             type: 'radar',
-            data: radarData,
+            data: {
+                labels: chartLabels.radar,
+                datasets: radarDatasets
+            },
             options: {
                 responsive: true,
                 maintainAspectRatio: false,
                 scales: {
                     r: {
-                        angleLines: { color: 'rgba(0,0,0,0.1)' },
-                        grid: { color: 'rgba(0,0,0,0.08)' },
-                        pointLabels: { font: { size: 12, family: 'Pretendard' }, color: '#4a5568' },
-                        ticks: { backdropColor: 'transparent', color: '#a0aec0', font: { size: 10 }, stepSize: 2 },
-                        min: 0, max: 10
+                        angleLines: { color: 'rgba(0, 0, 0, 0.05)' },
+                        grid: { color: 'rgba(0, 0, 0, 0.05)' },
+                        pointLabels: {
+                            font: { size: 13, weight: '600' },
+                            color: '#2d3748'
+                        },
+                        ticks: {
+                            min: 60,
+                            max: 100,
+                            stepSize: 10,
+                            display: false // hide numbers on axes
+                        }
                     }
                 },
                 plugins: {
                     legend: {
-                        position: 'bottom',
-                        labels: { font: { size: 12, family: 'Pretendard' }, color: '#4a5568', padding: 20, usePointStyle: true, pointStyleWidth: 12 }
+                        position: 'top',
+                        labels: {
+                            usePointStyle: true,
+                            padding: 20,
+                            font: { size: 13 }
+                        }
                     },
-                    tooltip: { bodyFont: { family: 'Pretendard' }, titleFont: { family: 'Pretendard' } }
+                    tooltip: {
+                        backgroundColor: 'rgba(45, 55, 72, 0.9)',
+                        padding: 12,
+                        cornerRadius: 8,
+                        titleFont: { size: 14 },
+                        bodyFont: { size: 13 }
+                    }
                 }
             }
         });
 
-        // Doughnut Chart (initially empty, will be populated by updateCompanyView)
-        const doughnutCtx = document.getElementById('doughnutChart').getContext('2d');
-        let doughnutChart = new Chart(doughnutCtx, {
+        // 2-B: Doughnut Chart (Individual Deep Dive)
+        const ctxDoughnut = document.getElementById('doughnutChart').getContext('2d');
+        const initialCompany = companyData['dn']; // Default selection
+
+        let doughnutChart = new Chart(ctxDoughnut, {
             type: 'doughnut',
-            data: { labels: [], datasets: [{ data: [], backgroundColor: [], borderWidth: 2, borderColor: '#ffffff' }] },
+            data: {
+                labels: chartLabels.pie,
+                datasets: [{
+                    data: initialCompany.pieData,
+                    backgroundColor: [
+                        initialCompany.color, 
+                        '#CBD5E0', // Light gray
+                        '#A0AEC0', // Medium gray
+                        '#718096'  // Darker gray
+                    ],
+                    borderWidth: 0,
+                    hoverOffset: 4
+                }]
+            },
             options: {
                 responsive: true,
                 maintainAspectRatio: false,
-                cutout: '60%',
+                cutout: '70%',
                 plugins: {
-                    legend: { position: 'bottom', labels: { font: { size: 11, family: 'Pretendard' }, color: '#718096', padding: 10, usePointStyle: true } },
-                    tooltip: { bodyFont: { family: 'Pretendard' }, titleFont: { family: 'Pretendard' } }
+                    legend: {
+                        position: 'bottom',
+                        labels: {
+                            usePointStyle: true,
+                            padding: 15,
+                            font: { size: 12 }
+                        }
+                    },
+                    tooltip: {
+                        callbacks: {
+                            label: function(context) {
+                                return ` ${context.label}: ${context.raw}%`;
+                            }
+                        }
+                    }
                 }
             }
         });
 
-        // =============================================
-        // INTERACTIVE LOGIC
-        // =============================================
-        function generatePalette(baseHex, count) {
-            const colors = [];
-            for (let i = 0; i < count; i++) {
-                colors.push(baseHex + Math.round(255 * (0.5 + 0.5 * (i / count))).toString(16).padStart(2, '0').slice(-2));
-            }
-            const hexToRgba = (hex, alpha) => {
-                const r = parseInt(hex.slice(1, 3), 16);
-                const g = parseInt(hex.slice(3, 5), 16);
-                const b = parseInt(hex.slice(5, 7), 16);
-                return `rgba(${r}, ${g}, ${b}, ${alpha})`;
-            };
-            const palette = [];
-            const alphas = [0.9, 0.72, 0.55, 0.4, 0.28];
-            for (let i = 0; i < count; i++) {
-                palette.push(hexToRgba(baseHex, alphas[i] || 0.25));
-            }
-            return palette;
-        }
+        // --- 3. Interaction Logic ---
+        
+        const selector = document.getElementById('companySelector');
+        
+        // DOM Elements to update
+        const elName = document.getElementById('detailName');
+        const elOrigin = document.getElementById('detailOrigin');
+        const elSlogan = document.getElementById('detailSlogan');
+        const elDesc = document.getElementById('detailDesc');
+        const elFlagship = document.getElementById('detailFlagship');
+        const elScore = document.getElementById('detailScore');
+        const elScoreBar = document.getElementById('detailScoreBar');
 
-        function updateCompanyView(companyKey) {
-            const data = companyData[companyKey];
-            if (!data) return;
+        selector.addEventListener('change', function(e) {
+            const selectedKey = e.target.value;
+            const data = companyData[selectedKey];
 
-            document.getElementById('companyCatchphrase').textContent = data.catchphrase;
-            document.getElementById('companySummary').textContent = data.summary;
-            document.getElementById('companyFlagship').textContent = data.flagship;
-            document.getElementById('companyAutomationReadiness').textContent = data.automationReadiness + ' / 10';
-            document.getElementById('companyTagline').style.color = data.accentColor;
+            // 1. Update Text Content
+            elName.textContent = data.name;
+            elOrigin.textContent = data.origin;
+            elSlogan.textContent = `"${data.slogan}"`;
+            elDesc.textContent = data.desc;
+            elFlagship.textContent = data.flagship;
+            
+            // Format score to 1 decimal place
+            elScore.textContent = data.score.toFixed(1);
+            
+            // 2. Update Progress Bar (Style/Color)
+            elScoreBar.style.width = `${(data.score / 10) * 100}%`;
+            elScoreBar.style.backgroundColor = data.color;
+            selector.style.setProperty('--tw-ring-color', data.color); // Change dropdown focus ring color
 
-            // Update Doughnut Chart
-            const palette = generatePalette(data.accentColor, data.rdData.length);
-            doughnutChart.data.labels = data.rdLabels;
-            doughnutChart.data.datasets[0].data = data.rdData;
-            doughnutChart.data.datasets[0].backgroundColor = palette;
+            // 3. Update Chart
+            doughnutChart.data.datasets[0].data = data.pieData;
+            // First slice gets the company color, rest get grayscale
+            doughnutChart.data.datasets[0].backgroundColor = [
+                data.color,
+                '#E2E8F0',
+                '#CBD5E0',
+                '#A0AEC0'
+            ];
             doughnutChart.update();
-        }
-
-        // Event Listener for dropdown
-        document.getElementById('companySelector').addEventListener('change', function() {
-            updateCompanyView(this.value);
+            
+            // Optional UX: Smooth scroll a tiny bit to ensure content is visible
+            // document.getElementById('deepdive').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
         });
 
-        // Initial population
-        updateCompanyView('dn');
-
     </script>
-
 </body>
 </html>
